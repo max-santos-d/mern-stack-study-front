@@ -1,6 +1,12 @@
-export default function Home () {
+// @ts-ignore
+import { Navbar } from "../../components/Navbar/Navbar.jsx"; 
+
+export default function Home() {
 
     return (
-        <h1>Helo World!</h1>
+        <>
+            <Navbar />
+            <h1>Helo World!</h1>
+        </>
     )
 };
