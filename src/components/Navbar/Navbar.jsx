@@ -1,19 +1,19 @@
-import './Navbar.css';
 import logo from '../../assets/logo.png';
+import { Button, Nav, ImgNav, InputSpace } from './NavbarStyled';
 
 export function Navbar() {
     return (
         <>
-            <nav>
-                <div className="input-search-space">
+            <Nav>
+                <InputSpace>
                     <i className='bi bi-search'></i>
                     <input type="text" placeholder='Pesquisa' />
-                </div>
+                </InputSpace>
 
-                <img src={logo} alt="Logo Facebook" />
+                <ImgNav src={logo} alt="Logo Facebook" />
 
-                <button>Login</button>
-            </nav>
+                <Button>Login</Button>
+            </Nav>
         </>
     );
 }
