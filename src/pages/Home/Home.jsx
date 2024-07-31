@@ -1,12 +1,14 @@
 // @ts-ignore
-import { Navbar } from "../../components/Navbar/Navbar.jsx"; 
+import { Navbar } from "../../components/Navbar/Navbar";
+import { Card } from '../../components/Card/Card';
+import news from '../../Data'
 
 export default function Home() {
 
     return (
         <>
             <Navbar />
-            <h1>Helo World!</h1>
+            {news.map((item, index) => (<Card key={index} news={item} />))}
         </>
     )
 };
