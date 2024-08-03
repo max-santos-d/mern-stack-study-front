@@ -1,26 +1,28 @@
 import { CardContainer, CardContent, CardInteractions } from "./Styled";
 
-export function Card({ news }) {
+export function Card(props) {
+    const { title, text, banner, likes, comments } = props;
+
     return (
         <>
             <CardContainer>
                 <CardContent>
                     <div>
-                        <h2>{news.title}</h2>
-                        <p>{news.text}</p>
+                        <h2>{title}</h2>
+                        <p>{text}</p>
                     </div>
-                    <img src={news.banner} alt="Imagem" />
+                    <img src={banner} alt="Imagem" />
                 </CardContent>
 
                 <CardInteractions>
                     <div>
                         <i className="bi bi-heart"></i>
-                        <span>{news.likes}</span>
+                        <span>{likes}</span>
                     </div>
 
                     <div>
                         <i className="bi bi-chat"></i>
-                        <span>{news.comments}</span>
+                        <span>{comments}</span>
                     </div>
                 </CardInteractions>
             </CardContainer>

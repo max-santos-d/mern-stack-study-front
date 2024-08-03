@@ -15,7 +15,7 @@ export const CardContainer = styled.section`
 export const CardContent = styled.article`
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 1rem;
 
     h2{
