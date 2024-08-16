@@ -29,7 +29,7 @@ export const CardContent = styled.article`
 
     img {
         width:100%;
-        height: 15rem;
+        height: 20rem;
         object-fit: cover;
         object-position: center;
         margin-bottom: 1rem;

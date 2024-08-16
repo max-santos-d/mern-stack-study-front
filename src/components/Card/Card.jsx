@@ -10,7 +10,7 @@ export function Card(props) {
                 <CardContent>
                     <div>
                         <h2>{title}</h2>
-                        <img src={banner} alt="Imagem" />
+                        {banner.length && <img src={banner} alt="Imagem" />}
                         <TextLimit text={text} limit={100}/>
                     </div>
                 </CardContent>
