@@ -1,31 +1,35 @@
 import { TextLimit } from "../TextLimit/TextLimit";
-import { CardContainer, CardContent, CardInteractions } from "./Styled";
+import { CardContainer, CardContent, CardInfo, CardInteractions } from "./Styled";
 
 export function Card(props) {
-    const { title, text, banner, likes, comments } = props;
+    const { top, title, text, banner, likes, comments } = props;
 
     return (
         <>
-            <CardContainer>
+            <CardContainer top={top}>
                 <CardContent>
+                    
+                    {<img src={banner} alt="Imagem" />}
+
                     <div>
-                        <h2>{title}</h2>
-                        {banner.length && <img src={banner} alt="Imagem" />}
-                        <TextLimit text={text} limit={100}/>
+                        <CardInfo>
+                            <h2>{title}</h2>
+                            <TextLimit text={text} limit={200} />
+                        </CardInfo>
+
+                        <CardInteractions>
+                            <section>
+                                <i className="bi bi-heart"></i>
+                                <span>{likes?.length}</span>
+                            </section>
+
+                            <section>
+                                <i className="bi bi-chat"></i>
+                                <span>{comments?.length}</span>
+                            </section>
+                        </CardInteractions>
                     </div>
                 </CardContent>
-
-                <CardInteractions>
-                    <div>
-                        <i className="bi bi-heart"></i>
-                        <span>{likes}</span>
-                    </div>
-
-                    <div>
-                        <i className="bi bi-chat"></i>
-                        <span>{comments}</span>
-                    </div>
-                </CardInteractions>
             </CardContainer>
         </>
     );

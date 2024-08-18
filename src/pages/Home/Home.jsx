@@ -3,38 +3,55 @@ import { useEffect, useState } from "react";
 // @ts-ignore
 import { Navbar } from "../../components/Navbar/Navbar";
 import { Card } from '../../components/Card/Card';
-import { HomeContainer } from "./Styled";
-import { getAllPosts } from "../../services/postsServices.js";
+import { HomeCards, HomeContainer, HomeHeader } from "./Styled";
+import { getAllPosts, getTopPost } from "../../services/postsServices.js";
 
 export default function Home() {
-    const [news, setNews] = useState([]);
+    const [posts, setPosts] = useState([]);
+    const [topPost, setTopPost] = useState({});
 
-    async function findAllPosts() {
-        const response = await getAllPosts();
-        setNews(response.data);
+    async function findPosts() {
+        const postResponse = await getAllPosts();
+        const topPostResponse = await getTopPost();
+
+        setPosts(postResponse.data);
+        setTopPost(topPostResponse.data.news);
     };
 
     useEffect(() => {
-        findAllPosts();
+        findPosts();
     }, []);
-
-    console.log(news);
 
     return (
         <>
             <Navbar />
-            <HomeContainer>
-                {news.map((item) => (
+
+            <HomeCards>
+                <HomeHeader>
                     <Card
-                        key={item._id}
-                        title={item.title}
-                        text={item.text}
-                        banner={item.banner}
-                        likes={item.likes.length}
-                        comments={item.comments.length}
+                        top={true}
+                        title={topPost.title}
+                        text={topPost.text}
+                        banner={topPost.banner}
+                        likes={topPost.likes}
+                        comments={topPost.comments}
                     />
-                ))}
-            </HomeContainer>
+                </HomeHeader>
+
+                <HomeContainer>
+                    {posts.map((item) => (
+                        <Card
+                            key={item._id}
+                            title={item.title}
+                            text={item.text}
+                            banner={item.banner}
+                            likes={item.likes}
+                            comments={item.comments}
+                        />
+                    ))}
+                </HomeContainer>
+            </HomeCards>
+
         </>
     )
 };
