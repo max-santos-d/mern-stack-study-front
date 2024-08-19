@@ -26,7 +26,7 @@ export function Navbar() {
 
     function onSearch(data) {
         const { title } = data;
-        title && navigate(`/search/${title}`);
+        navigate(`/search/${title}`);
         reset();
     };
 

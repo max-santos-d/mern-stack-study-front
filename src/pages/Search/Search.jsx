@@ -26,17 +26,16 @@ export function Search() {
 
     return (
         <>
+            <TextResults>
+                <span>
+                    {posts.length
+                        ? `Resultado: ${posts.length} ${posts.length > 1 ? 'Posts Encontrados' : 'Post Encontrado'}`
+                        : `Sem resultado para: "${title}"`
+                    }
+                </span>
+            </TextResults>
+
             <SectionSearch>
-
-                <TextResults>
-                    <span>
-                        {posts.length
-                            ? `Resultado: ${posts.length} ${posts.length > 1 ? 'Posts Encontrados' : 'Post Encontrado'}`
-                            : `Sem resultado para: "${title}"`
-                        };
-                    </span>
-                </TextResults>
-
                 <SearchPosts>
                     {posts.map((item) => (
                         <Card
@@ -47,7 +46,7 @@ export function Search() {
                             likes={item.likes}
                             comments={item.comments}
                         />
-                    ))}
+                    ))};
                 </SearchPosts>
             </SectionSearch>
         </>
