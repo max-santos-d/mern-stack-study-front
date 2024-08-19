@@ -12,6 +12,7 @@ export const CardContent = styled.article`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    align-items: flex-start;
 
     div {
         display: flex;

@@ -24,12 +24,10 @@ export default function Home() {
 
     return (
         <>
-            <Navbar />
-
             <HomeCards>
                 <HomeHeader>
                     <Card
-                        top={true}
+                        top
                         title={topPost.title}
                         text={topPost.text}
                         banner={topPost.banner}
@@ -53,5 +51,5 @@ export default function Home() {
             </HomeCards>
 
         </>
-    )
+    );
 };
