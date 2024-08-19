@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Button, Nav, ImgNav, InputSpace, ErrorSpan } from './Styled';
 
-const searchSchema = z.object({
+const searchSchema = z.object({    
     title: z
         .string()
         .nonempty({ message: 'A pesquisa não pode estar vazia' })

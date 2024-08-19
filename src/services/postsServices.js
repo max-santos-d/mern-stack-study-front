@@ -7,7 +7,12 @@ export function getAllPosts() {
     return response;
 };
 
-export function getTopPost () {
+export function getTopPost() {
     const response = axios.get(`${baseURL}/news/search?last=true`);
+    return response;
+};
+
+export function searchPost(title) {
+    const response = axios.get(`${baseURL}/news/search?title=${title}`);
     return response;
 };
