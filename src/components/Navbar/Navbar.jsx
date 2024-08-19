@@ -4,7 +4,8 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { Button, Nav, ImgNav, InputSpace, ErrorSpan } from './Styled';
+import { Nav, ImgNav, InputSpace, ErrorSpan } from './Styled';
+import { Button } from '../Button/Button';
 
 const searchSchema = z.object({    
     title: z
@@ -56,7 +57,7 @@ export function Navbar() {
                     <ImgNav src={logo} alt="Logo Facebook" />
                 </Link>
 
-                <Button onClick={goAuth}>Login</Button>
+                <Button onClick={goAuth} type='button' text='Entrar' toLink='/auth' >Login</Button>
             </Nav>
 
             {errors.title && <ErrorSpan> {errors.title.message} </ErrorSpan>}
