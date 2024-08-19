@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import { ButtonContent } from "./ButtonStyled";
 
-export function Button({ type, text, toLink }) {
+export function Button({ type, text }) {
     return (
-        <Link to={toLink}>
-            <ButtonContent type={type}> {text} </ButtonContent>
-        </Link>
+        <ButtonContent type={type}> {text} </ButtonContent>
     )
 }

@@ -1,17 +1,50 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { useForm } from "react-hook-form";
 import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Input/Input";
 import { AuthContainer, Section } from "./Authenticationtyled";
 
 export function Authentication() {
+    const {
+        register: registerSignin,
+        handleSubmit: handleSubmitSignin,
+        formState: { errors: errorsSignin }
+    } = useForm();
+    
+    const {
+        register: registerSingnup,
+        handleSubmit: handleSubmitSingnup,
+        formState: { errors: errorsSingnup }
+    } = useForm();
+
+    function inHandleSubmit(data) {
+        console.log(data);
+    };
+
+    function upHandleSubmit(data) {
+        console.log(data);
+    };
+
     return (
         <>
             <AuthContainer>
                 <Section type='signin'>
                     <h2>Entrar</h2>
 
-                    <form>
-                        <Input type='email' placeholder='E-mail' name='email' /*register={inRegister}*/ />
-                        <Input type='password' placeholder='Senha' name='password' /*register={inRegister}*/ />
+                    <form onSubmit={handleSubmitSignin(inHandleSubmit)}>
+                        <Input
+                            type='email'
+                            placeholder='E-mail'
+                            name='email'
+                            register={registerSignin}
+                        />
+                        <Input
+                            type='password'
+                            placeholder='Senha'
+                            name='password'
+                            register={registerSignin}
+                        />
                         <Button type='submit' text='Entrar' />
                     </form>
                 </Section>
@@ -19,13 +52,25 @@ export function Authentication() {
                 <Section type='signup'>
                     <h2>Cadastrar</h2>
 
-                    <form>
-                        <Input type='text' placeholder='Nome' name='name' /*register={inRegister}*/ />
-                        <Input type='text' placeholder='Username' name='username' /*register={inRegister}*/ />
-                        <Input type='email' placeholder='E-mail' name='email' /*register={inRegister}*/ />
-                        <Input type='password' placeholder='Senha' name='password' /*register={inRegister}*/ />
-                        <Input type='text' placeholder='Avatar' name='avatar' /*register={inRegister}*/ />
-                        <Input type='text' placeholder='Background' name='background' /*register={inRegister}*/ />
+                    <form onSubmit={handleSubmitSingnup(upHandleSubmit)}>
+                        <Input
+                            type='text'
+                            placeholder='Nome Completo'
+                            name='name'
+                            register={registerSingnup}
+                        />
+                        <Input
+                            type='email'
+                            placeholder='E-mail'
+                            name='email'
+                            register={registerSingnup}
+                        />
+                        <Input
+                            type='password'
+                            placeholder='Senha'
+                            name='password'
+                            register={registerSingnup}
+                        />
                         <Button type='submit' text='Entrar' />
                     </form>
                 </Section>

@@ -1,7 +1,7 @@
 import { InputContent } from "./InputStyled";
 
-export function Input({ type, placeholder, /*register,*/ name }) {
+export function Input({ type, placeholder, name, register }) {
     return (
-        <InputContent type={type} placeholder={placeholder} /*{...register(name)}*/ />
+        <InputContent type={type} placeholder={placeholder} {...register(name)} />
     );
 }

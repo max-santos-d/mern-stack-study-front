@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Nav, ImgNav, InputSpace, ErrorSpan } from './Styled';
 import { Button } from '../Button/Button';
 
-const searchSchema = z.object({    
+const searchSchema = z.object({
     title: z
         .string()
         .nonempty({ message: 'A pesquisa não pode estar vazia' })
@@ -57,7 +57,10 @@ export function Navbar() {
                     <ImgNav src={logo} alt="Logo Facebook" />
                 </Link>
 
-                <Button onClick={goAuth} type='button' text='Entrar' toLink='/auth' >Login</Button>
+                <Link to='/auth'>
+                    <Button onClick={goAuth} type='button' text='Entrar' >Login</Button>
+                </Link>
+
             </Nav>
 
             {errors.title && <ErrorSpan> {errors.title.message} </ErrorSpan>}
