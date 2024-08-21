@@ -8,13 +8,14 @@ export const ButtonContent = styled.button`
     padding: 0.4rem 1rem;
     color: #fff;
     transition: all 0.4s ease-in-out;
-    cursor: pointer;
     border-radius: 0.3rem;
     font-family: Roboto, Arial, Helvetica, sans-serif;
     width: auto;
     font-weight: 500;
     letter-spacing: 0.1rem;
+    margin-top: .5rem;
     text-transform: uppercase;
+    cursor: pointer;
 
     &:hover {
         background-color: #0a86af;

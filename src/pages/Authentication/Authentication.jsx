@@ -7,6 +7,7 @@ import { AuthContainer, Section } from "./Authenticationtyled";
 import { signinSchema } from "../../schemas/signinSchema";
 import { signupSchema } from "../../schemas/signupSchema";
 import { ErrorSpan } from "../../components/Navbar/Styled";
+import { signup } from "../../services/userServices";
 
 export function Authentication() {
     const {
@@ -25,8 +26,13 @@ export function Authentication() {
         console.log(data);
     };
 
-    function upHandleSubmit(data) {
-        console.log(data);
+    async function upHandleSubmit(data) {
+        try{
+            const response = await signup(data);
+            console.log(response);
+        }catch(err){
+            console.log(err);
+        };
     };
 
     return (

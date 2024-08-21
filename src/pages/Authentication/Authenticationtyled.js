@@ -5,7 +5,7 @@ export const AuthContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    max-width: 800px;
     margin: 0 auto;
 
     form {
@@ -21,10 +21,11 @@ export const Section = styled.section`
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    height: 300px;
     padding: 2rem;
     gap: 1rem;
+    margin: 1rem;
     background-color: ${(props) => (props.type === 'signin' ? 'blue' : 'white')};
+    box-shadow: rgba(58, 50, 105, 0.15) 8px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
     color: ${(props) => (props.type === 'signup' ? 'blue' : 'white')};
 
     h2{
