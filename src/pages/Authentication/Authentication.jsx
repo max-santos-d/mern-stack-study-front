@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-
+import Cookies from 'js-cookie'
 import { useForm } from "react-hook-form";
 import { Button } from "../../components/Button/Button";
 import { Input } from "../../components/Input/Input";
@@ -8,6 +8,7 @@ import { signinSchema } from "../../schemas/signinSchema";
 import { signupSchema } from "../../schemas/signupSchema";
 import { ErrorSpan } from "../../components/Navbar/Styled";
 import { signup } from "../../services/userServices";
+import { useNavigate } from "react-router-dom";
 
 export function Authentication() {
     const {
@@ -26,11 +27,15 @@ export function Authentication() {
         console.log(data);
     };
 
+    const navigate = useNavigate();
+
     async function upHandleSubmit(data) {
-        try{
-            const response = await signup(data);
-            console.log(response);
-        }catch(err){
+        try {
+            const response = (await signup(data)).data.response;
+            const {token} = response;            
+            Cookies.set('token', String(token), { expires: 1 });
+            navigate('/');
+        } catch (err) {
             console.log(err);
         };
     };
@@ -96,7 +101,7 @@ export function Authentication() {
                             register={registerSingnup}
                         />
                         {errorsSingnup.confirmPassword && <ErrorSpan> {errorsSingnup.confirmPassword.message} </ErrorSpan>}
-                        
+
                         <Button type='submit' text='Entrar' />
                     </form>
                 </Section>
