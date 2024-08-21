@@ -15,6 +15,11 @@ export function signup(data) {
     return response;
 };
 
+export function signin (data) {
+    const response = axios.post(`${baseURL}/auth`, data);
+    return response;
+};
+
 function generateUsername() {
     const max = 999;
     const min = 111;

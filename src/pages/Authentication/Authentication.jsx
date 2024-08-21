@@ -7,7 +7,7 @@ import { AuthContainer, Section } from "./Authenticationtyled";
 import { signinSchema } from "../../schemas/signinSchema";
 import { signupSchema } from "../../schemas/signupSchema";
 import { ErrorSpan } from "../../components/Navbar/Styled";
-import { signup } from "../../services/userServices";
+import { signin, signup } from "../../services/userServices";
 import { useNavigate } from "react-router-dom";
 
 export function Authentication() {
@@ -23,8 +23,15 @@ export function Authentication() {
         formState: { errors: errorsSingnup }
     } = useForm({ resolver: zodResolver(signupSchema) });
 
-    function inHandleSubmit(data) {
-        console.log(data);
+    async function inHandleSubmit(data) {
+        try {
+            const response = (await signin(data)).data;
+            Cookies.set('token', response.token, { expires: 1 });
+            navigate('/')
+        } catch (err) {
+            console.log(err);
+        };
+
     };
 
     const navigate = useNavigate();
@@ -32,8 +39,7 @@ export function Authentication() {
     async function upHandleSubmit(data) {
         try {
             const response = (await signup(data)).data.response;
-            const {token} = response;            
-            Cookies.set('token', String(token), { expires: 1 });
+            Cookies.set('token', response.token, { expires: 1 });
             navigate('/');
         } catch (err) {
             console.log(err);
