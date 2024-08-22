@@ -40,7 +40,9 @@ export function Navbar() {
     };
 
     function signout() {
-        console.log('saiu!')
+        Cookies.remove('token');
+        setUser(undefined);
+        navigate('/');
     };
 
     useEffect(() => {
@@ -76,8 +78,11 @@ export function Navbar() {
 
                 {user ? (
                     <UserLogged>
-                        <h2>Bem vindo(a) {user.name}</h2>
-                        <Button onClick={signout} type='button' text='Sair'>Sair</Button>
+                        <Link to={'/profile'}>
+                            <h2>Bem vindo(a) {user.name}</h2>
+                        </Link>
+
+                        <i onClick={signout} className='bi bi-box-arrow-right'></i>
                     </UserLogged>
                 ) : (
                     <Link to='/auth'>

@@ -18,7 +18,7 @@ export function Authentication() {
     } = useForm({ resolver: zodResolver(signinSchema) });
 
     const {
-        register: registerSingnup,
+        register: registerSignup,
         handleSubmit: handleSubmitSingnup,
         formState: { errors: errorsSingnup }
     } = useForm({ resolver: zodResolver(signupSchema) });
@@ -80,7 +80,7 @@ export function Authentication() {
                             type='text'
                             placeholder='Nome Completo'
                             name='name'
-                            register={registerSingnup}
+                            register={registerSignup}
                         />
                         {errorsSingnup.name && <ErrorSpan> {errorsSingnup.name.message} </ErrorSpan>}
 
@@ -88,7 +88,7 @@ export function Authentication() {
                             type='email'
                             placeholder='E-mail'
                             name='email'
-                            register={registerSingnup}
+                            register={registerSignup}
                         />
                         {errorsSingnup.email && <ErrorSpan> {errorsSingnup.email.message} </ErrorSpan>}
 
@@ -96,7 +96,7 @@ export function Authentication() {
                             type='password'
                             placeholder='Senha'
                             name='password'
-                            register={registerSingnup}
+                            register={registerSignup}
                         />
                         {errorsSingnup.password && <ErrorSpan> {errorsSingnup.password.message} </ErrorSpan>}
 
@@ -104,7 +104,7 @@ export function Authentication() {
                             type='password'
                             placeholder='Senha'
                             name='confirmPassword'
-                            register={registerSingnup}
+                            register={registerSignup}
                         />
                         {errorsSingnup.confirmPassword && <ErrorSpan> {errorsSingnup.confirmPassword.message} </ErrorSpan>}
 

@@ -88,5 +88,13 @@ export const UserLogged = styled.div`
         };
     };
 
+    i{
+        font-size: 1.5rem;
+        color: #0BADE3;
+        cursor: pointer;
 
+        &:hover{
+            color: #043546;
+        };
+    };
 `;
