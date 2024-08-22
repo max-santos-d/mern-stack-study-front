@@ -13,7 +13,6 @@ export const ButtonContent = styled.button`
     width: auto;
     font-weight: 500;
     letter-spacing: 0.1rem;
-    margin-top: .5rem;
     text-transform: uppercase;
     cursor: pointer;
 

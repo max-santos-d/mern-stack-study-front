@@ -69,3 +69,24 @@ export const ErrorSpan = styled.span`
     justify-content: center;
     font-weight: bold;
 `;
+
+export const UserLogged = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    gap: 1rem;
+
+    h2 {
+        font-size: 1.1rem;
+        color: #0BADE3;
+        transition: all 0.5s;
+        cursor: pointer;
+
+        &:hover{
+            color: #043546;
+        };
+    };
+
+
+`;

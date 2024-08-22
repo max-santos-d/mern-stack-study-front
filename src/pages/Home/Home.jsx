@@ -1,6 +1,5 @@
 // @ts-ignore -> ignorar os erros de uma linha abaixo
 import { useEffect, useState } from "react";
-import Cookies from 'js-cookie'
 
 import { Card } from '../../components/Card/Card';
 import { HomeCards, HomeContainer, HomeHeader } from "./Styled";
@@ -17,14 +16,10 @@ export default function Home() {
 
         setPosts(postResponse.data);
         setTopPost(topPostResponse.data.news);
-
-        console.log(posts);
-        console.log(topPost);
     };
 
     useEffect(() => {
         findPosts();
-        console.log(Cookies.get('token'));
     }, []);
 
     return (
