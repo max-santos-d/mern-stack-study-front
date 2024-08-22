@@ -8,6 +8,7 @@ import { GlobalStyled } from './GlobalStyled.js'
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx'
 import { Authentication } from './pages/Authentication/Authentication.jsx'
 import { Profile } from './components/Profile/Profile.jsx'
+import UserProvider from './Context/UserContext.jsx'
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,8 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <GlobalStyled />
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>,
 )

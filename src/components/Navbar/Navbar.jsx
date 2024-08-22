@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -9,6 +9,7 @@ import logo from '../../assets/logo.png';
 import { Button } from '../Button/Button';
 import { searchSchema } from '../../schemas/navBarSchema';
 import { userLogged } from '../../services/userServices';
+import { UserContext } from '../../Context/UserContext';
 
 
 
@@ -22,7 +23,7 @@ export function Navbar() {
         resolver: zodResolver(searchSchema),
     });
     const navigate = useNavigate();
-    const [user, setUser] = useState({});
+    const { user, setUser } = useContext(UserContext);
 
     function onSearch(data) {
         const { title } = data;
@@ -73,7 +74,7 @@ export function Navbar() {
 
 
                 <Link to='/'>
-                    <ImgNav src={logo} alt="Logo Facebook" />
+                    <ImgNav src={logo} alt="Logo" />
                 </Link>
 
                 {user ? (
