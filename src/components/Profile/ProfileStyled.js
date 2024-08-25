@@ -85,3 +85,20 @@ export const ProfileAddPost = styled.i`
         font-size: 2.1rem;
     }
 `;
+
+export const ProfilePosts = styled.section`
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 15px;
+    margin: 1rem auto;
+    width: 40%;
+
+    h3 {
+        grid-column: 1 / -1 ;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #023344;
+        margin-top: 1rem;
+    };
+`;

@@ -16,3 +16,8 @@ export function searchPost(title) {
     const response = axios.get(`${baseURL}/news/search?title=${title}`);
     return response;
 };
+
+export function getAllPostsByUser(userId) {
+    const response = axios.get(`${baseURL}/news/search?userId=${userId}`);
+    return response;
+};
