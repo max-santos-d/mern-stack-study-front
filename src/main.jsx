@@ -9,6 +9,7 @@ import ErrorPage from './components/ErrorPage/ErrorPage.jsx'
 import { Authentication } from './pages/Authentication/Authentication.jsx'
 import { Profile } from './components/Profile/Profile.jsx'
 import UserProvider from './Context/UserContext.jsx'
+import { ManagePost } from './pages/ManagePost/ManagePost.jsx'
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         element: <Profile />
       },
     ]
+  },
+  {
+    path: '/manage-post/:action',
+    element: <ManagePost />
   },
   {
     path: '/auth',

@@ -3,6 +3,7 @@ import { UserContext } from "../../Context/UserContext";
 import { PofileIconEdit, ProfileActions, ProfileAddPost, ProfileBackground, ProfileComponent, ProfileHeader, ProfilePosts, ProfileUser, ProfileUserAvatar } from "./ProfileStyled";
 import { getAllPostsByUser } from "../../services/postsServices";
 import { Card } from '../Card/Card';
+import { Link } from "react-router-dom";
 
 export function Profile() {
     const { user } = useContext(UserContext);
@@ -15,7 +16,7 @@ export function Profile() {
 
     useEffect(() => {
         showPostUser();
-    }, []);
+    }, [user]);
 
     return (
         <>
@@ -34,16 +35,18 @@ export function Profile() {
                     </ProfileUser>
 
                     <ProfileActions>
-                        <ProfileAddPost>
-                            <i className="bi bi-plus-circle"></i>
-                        </ProfileAddPost>
+                        <Link to={'/manage-post/add'}>
+                            <ProfileAddPost>
+                                <i className="bi bi-plus-circle"></i>
+                            </ProfileAddPost>
+                        </Link>
                     </ProfileActions>
                 </ProfileHeader>
 
                 <ProfilePosts>
                     {!post.length && <h3>Nenhum Post encontrado</h3>}
 
-                    {post && post.length && post.map((post, index) => {
+                    {post.length && post.map((post, index) => {
                         return (
                             <Card
                                 key={index}

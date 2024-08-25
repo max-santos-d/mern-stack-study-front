@@ -1,7 +1,21 @@
-import { InputContent } from "./InputStyled";
+import { InputContent, TextAreaSpace } from "./InputStyled";
 
-export function Input({ type, placeholder, name, register }) {
+export function Input({ type, placeholder, name, register, isInput = true, value }) {
+    let inputProps = {
+        type,
+        placeholder,
+        ...register(name),
+    };
+
+    if (value) inputProps.value = value;
+
     return (
-        <InputContent type={type} placeholder={placeholder} {...register(name)} />
-    );
+        <>
+            {
+                isInput
+                    ? <InputContent {...inputProps} />
+                    : <TextAreaSpace {...inputProps}/>
+            }
+        </>
+    )
 }
