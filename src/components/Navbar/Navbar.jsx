@@ -79,7 +79,7 @@ export function Navbar() {
 
                 {user ? (
                     <UserLogged>
-                        <Link to={'/profile'}>
+                        <Link to={'/profile'} style={{textDecoration: 'none'}}>
                             <h2>Bem vindo(a) {user.name}</h2>
                         </Link>
 

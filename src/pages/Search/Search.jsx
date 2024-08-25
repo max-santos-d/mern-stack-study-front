@@ -22,8 +22,6 @@ export function Search() {
         search();
     }, [title]);
 
-    console.log(posts);
-
     return (
         <>
             <TextResults>
