@@ -35,7 +35,7 @@ export function Profile() {
                     </ProfileUser>
 
                     <ProfileActions>
-                        <Link to={'/manage-post/add'}>
+                        <Link to={'/manage-post/add/add'}>
                             <ProfileAddPost>
                                 <i className="bi bi-plus-circle"></i>
                             </ProfileAddPost>
@@ -46,15 +46,17 @@ export function Profile() {
                 <ProfilePosts>
                     {!post.length && <h3>Nenhum Post encontrado</h3>}
 
-                    {post.length && post.map((post, index) => {
+                    {post.length && post.map((post) => {
                         return (
                             <Card
-                                key={index}
+                                key={post._id}
+                                id={post._id}
                                 title={post.title}
                                 text={post.text}
                                 banner={post.banner}
-                                likes={post.lokes}
+                                likes={post.likes}
                                 comments={post.comments}
+                                actions={true}
                             />
                         )
                     })}

@@ -28,11 +28,10 @@ export default function Home() {
                 <HomeHeader>
                     {
                         topPost && <Card
-                            top
+                            top='true'
                             title={topPost.title}
                             text={topPost.text}
                             banner={topPost.banner}
-                            likes={topPost.likes}
                             comments={topPost.comments}
                         />
                     }
@@ -43,10 +42,10 @@ export default function Home() {
                         posts && posts.map((item) => (
                             <Card
                                 key={item._id}
+                                id={item._id}
                                 title={item.title}
                                 text={item.text}
                                 banner={item.banner}
-                                likes={item.likes}
                                 comments={item.comments}
                             />
                         ))

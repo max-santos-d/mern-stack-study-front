@@ -13,7 +13,7 @@ import { UserContext } from '../../Context/UserContext';
 
 
 
-export function Navbar() {
+export function Navbar() {   
     const {
         register,
         handleSubmit,
@@ -30,7 +30,7 @@ export function Navbar() {
         navigate(`/search/${title}`);
         reset();
     };
-
+    
     async function findUserLogged() {
         try {
             const response = await userLogged();
@@ -59,8 +59,7 @@ export function Navbar() {
             <Nav>
                 <form onSubmit={handleSubmit(onSearch)}>
                     <InputSpace>
-
-                        <button type='sunmit'>
+                        <button type='submit'>
                             <i className='bi bi-search'></i>
                         </button>
 
@@ -77,7 +76,7 @@ export function Navbar() {
                     <ImgNav src={logo} alt="Logo" />
                 </Link>
 
-                {user ? (
+                {Cookies.get('token') && user ? (
                     <UserLogged>
                         <Link to={'/profile'} style={{textDecoration: 'none'}}>
                             <h2>Bem vindo(a) {user.name}</h2>

@@ -29,11 +29,11 @@ const router = createBrowserRouter([
         path: '/profile',
         element: <Profile />
       },
+      {
+        path: '/manage-post/:action/:id',
+        element: <ManagePost />
+      },
     ]
-  },
-  {
-    path: '/manage-post/:action',
-    element: <ManagePost />
   },
   {
     path: '/auth',

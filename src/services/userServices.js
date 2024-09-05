@@ -27,7 +27,6 @@ export function userLogged() {
             Authorization: `Bearer ${Cookies.get('token')}`,
         },
     });
-
     return response;
 };
 
